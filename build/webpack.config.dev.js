@@ -11,7 +11,7 @@ module.exports = merge(baseConfig, {
     },
     historyApiFallback: true,
     hot: true,
-    progressh: true
+    progress: true
   },
 
   module: {

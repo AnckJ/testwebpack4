@@ -35,7 +35,7 @@ export default new Vue({
     plugins：插件
     optimization：打包优化
   ### 4.2 在package.json中添加运行命令
-    "build": "webpack --config webpack.config.base.js" // 前提测试用
+    "build": "webpack --config webpack.config.base.js" // 前期测试用
 
 ## 5、配置module.rules
   ### 5.1 安装需要的loader
@@ -87,8 +87,12 @@ export default new Vue({
 ## 9、配置生产环境
   生产环境下，将文件打包，优化打包的文件。单独打包css；拆分js文件，将共用和引入的包单独打包。
 
-  ### 9.1 使用 mini-css-extract-plugin 抽出css单独出来一个文件
-  ### 9.2 webpack配置项optimization可以优化打包文件，拆分js文件，打包生成vendor和runtime的单独文件
+  ### 9.1 创建webpack.config.prod.js来配置生产环境
+    使用webpack-merge合并webpack.config.base.js配置参数
+  ### 9.2 在package.json中修改运行命令
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
+  ### 9.3 使用 mini-css-extract-plugin 抽出css单独出来一个文件
+  ### 9.4 webpack配置项optimization可以优化打包文件，拆分js文件，打包生成vendor和runtime的单独文件
     minimizer：
       使用 optimize-css-assets-webpack-plugin 压缩css文件
       使用 uglifyjs-webpack-plugin 压缩js(需要使用@bate版本才支持es6)

@@ -37,7 +37,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 1024,
-            filename: '[name].[ext]'
+            name: '[name].[hash:8].[ext]'
           }
         }]
       }
