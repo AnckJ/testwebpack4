@@ -117,3 +117,18 @@ export default new Vue({
             reuseExistingChunk: true
           }
         }
+
+## 10、路径问题
+
+  ### 10.1 css中的图片
+    url-loader 有两个配置：
+      {
+        publicPath: '../' // css文件相对图片的路径关系
+        outputPath：'images' // 配置打包之后的目录
+      }
+  ### 10.2 template中的图片
+    第一种方法：直接import图片
+      import img from '../assets/images/2.jpg'
+
+    第二种方法：设置MiniCSSExtractPlugin.loader的publicPath: '../' // css文件相对图片的路径关系
+        设置url-loader 的 esModule：false 不设置会打包成对象[object Module]

@@ -13,14 +13,20 @@ module.exports = merge(baseConfig, {
   },
 
   output: {
-    filename: '[name].[chunkhash:8].js'
+    filename: 'js/[name].[chunkhash:8].js'
   },
 
   module: {
     rules: [{
       test: /\.styl$/,
       use: [
-        MiniCSSExtractPlugin.loader,
+        'style-loader',
+        {
+          loader: MiniCSSExtractPlugin.loader,
+          options: {
+            publicPath: '../'
+          }
+        },
         'css-loader',
         {
           loader: 'postcss-loader',
@@ -36,8 +42,8 @@ module.exports = merge(baseConfig, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCSSExtractPlugin({
-      filename: '[name].[hash:8].css',
-      chunkFilename: '[id].[hash:8].css'
+      filename: 'css/[name].[hash:8].css',
+      chunkFilename: 'css/[id].[hash:8].css'
     })
   ],
 

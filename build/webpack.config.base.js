@@ -12,6 +12,13 @@ module.exports = {
     path: path.join(__dirname, '../dist')
   },
 
+  resolve: {
+    extensions: ['.jsx', '.js', '.vue'],
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    }
+  },
+
   module: {
     rules: [
       {
@@ -37,7 +44,9 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 1024,
-            name: '[name].[hash:8].[ext]'
+            outputPath: 'images',
+            name: '[name].[hash:8].[ext]',
+            esModule: false
           }
         }]
       }

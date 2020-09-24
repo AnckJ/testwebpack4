@@ -12,7 +12,7 @@ export default {
   },
 
   render () {
-  return (<div>{this.seconds}<div>{this.aaa}</div></div>)
+    return (<div>{this.seconds}<div>{this.aaa}</div></div>)
   },
 
   created () {
